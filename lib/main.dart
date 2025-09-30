@@ -8,7 +8,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: FadingTextAnimation(),
+      home: PageView(
+        children: [
+          FadingTextAnimation(),
+          SecondScreen(),
+        ],
+      ),
     );
   }
 }
@@ -46,6 +51,24 @@ class _FadingTextAnimationState extends State<FadingTextAnimation> {
       floatingActionButton: FloatingActionButton(
         onPressed: toggleVisibility,
         child: Icon(Icons.play_arrow),
+      ),
+    );
+  }
+}
+
+// second screen
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Another Fading Text Animation'),
+      ),
+      body: Center(
+        child: Text(
+          'second screen',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
     );
   }
